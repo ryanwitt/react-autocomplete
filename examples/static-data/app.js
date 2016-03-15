@@ -7,6 +7,10 @@ let App = React.createClass({
     return { value: 'Ma' }
   },
   render () {
+    const { value } = this.state;
+    const items = getStates()
+      .filter(state => matchStateToTerm(state, value))
+      .sort((a, b) => sortStates(a, b, value))
     return (
       <div>
         <h1>Basic Example with Static Data</h1>
@@ -17,13 +21,11 @@ let App = React.createClass({
         </p>
 
         <Autocomplete
-          value={this.state.value}
+          value={value}
           labelText="Choose a state from the US"
           inputProps={{name: "US state"}}
-          items={getStates()}
+          items={items}
           getItemValue={(item) => item.name}
-          shouldItemRender={matchStateToTerm}
-          sortItems={sortStates}
           onChange={(event, value) => this.setState({ value })}
           onSelect={value => this.setState({ value })}
           renderItem={(item, isHighlighted) => (
