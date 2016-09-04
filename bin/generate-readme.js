@@ -9,6 +9,6 @@ try {
     .replace('$API_DOC', API_DOC)
   fs.writeFileSync(`${__dirname}/../README.md`, readme)
 } catch (e) {
-  console.error(e)
+  process.stderr.write(e.stack + '\n')
   process.exit(1)
 }
