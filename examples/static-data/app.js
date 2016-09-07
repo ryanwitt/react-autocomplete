@@ -3,6 +3,16 @@ import DOM from 'react-dom'
 import { getStates, matchStateToTerm, sortStates, styles } from '../../lib/utils'
 import Autocomplete from '../../lib/index'
 
+class Item extends React.Component {
+  render () {
+    return (
+      <div style={this.props.style}>
+        {this.props.children}
+      </div>
+    )
+  }
+}
+
 let App = React.createClass({
   getInitialState() {
     return { value: 'Ma' }
@@ -25,12 +35,16 @@ let App = React.createClass({
           sortItems={sortStates}
           onChange={(event, value) => this.setState({ value })}
           onSelect={value => this.setState({ value })}
-          renderItem={(item, isHighlighted) => (
-            <div
-              style={isHighlighted ? styles.highlightedItem : styles.item}
+          item={({ item, highlighted, ...props }) =>
+            <Item
+              {...props}
               key={item.abbr}
-            >{item.name}</div>
-          )}
+              style={highlighted ? styles.highlightedItem : styles.item}
+            >
+              {item.name}
+            </Item>
+          }
+          item={props => props.item.name}
         />
       </div>
     )
