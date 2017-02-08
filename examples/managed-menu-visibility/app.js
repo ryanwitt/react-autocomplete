@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       value: '',
       isOpen: false,
-      forceOpen: false,
+      forceOpen: false
     }
   }
 

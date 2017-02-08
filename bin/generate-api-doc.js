@@ -13,11 +13,11 @@ const TYPES = {
   bool: 'Boolean',
   string: 'String',
   number: 'Number',
-  object: 'Object',
+  object: 'Object'
 }
 
 const SECRET_PROPS = [
-  'debug',
+  'debug'
 ]
 
 function parse(filePath) {
