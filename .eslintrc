@@ -1,5 +1,13 @@
 {
-  "extends": "rackt",
+  "extends": ["rackt", "plugin:react/recommended"],
+  "plugins": [
+    "react"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "rules": {
     "array-bracket-spacing": 0,
     "comma-dangle": 0,
