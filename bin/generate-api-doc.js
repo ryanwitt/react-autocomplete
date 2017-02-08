@@ -38,7 +38,7 @@ function prune(props) {
 }
 
 function sort(props) {
-  return sortBy(props, [p => !p.required, 'name'])
+  return sortBy(props, [ p => !p.required, 'name' ])
 }
 
 function prepareDescription(props) {

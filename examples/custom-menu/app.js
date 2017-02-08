@@ -28,7 +28,7 @@ let App = React.createClass({
           inputProps={{ name: 'US state', id: 'states-autocomplete' }}
           items={this.state.unitedStates}
           getItemValue={(item) => item.name}
-          onSelect={(value, state) => this.setState({ value, unitedStates: [state] }) }
+          onSelect={(value, state) => this.setState({ value, unitedStates: [ state ] }) }
           onChange={(event, value) => {
             this.setState({ value, loading: true })
             fakeRequest(value, (items) => {
@@ -68,7 +68,7 @@ let App = React.createClass({
           padding: '2px 6px',
           fontWeight: 'bold'
         }
-        return [<div style={style}>{text.charAt(0)}</div>, item]
+        return [ <div style={style}>{text.charAt(0)}</div>, item ]
       }
       else {
         return item
